@@ -5,13 +5,18 @@ calculator program yourself in this file.
 """
 
 from arithmetic import *
+
 def calculator():
     while True:
         user_input = raw_input("Please enter operator command, number(s) you want to calculate.")
-        token = user_input.split(" ")
-        calculation()
-# Your code goes here
-def calculation(): 
+        result = calculation(user_input)
+        if not result:
+            return
+        else:
+            print result 
+def calculation(user_input): 
+    user_token = user_input.split(" ")
+    token = user_token
     if token[0] != "q":
         if token[0] == "+":
             return add(int(token[1]),int(token[2]))
